@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: spotify-live-banner
+    runtime: python
+    region: oregon
+    plan: free
+    branch: main
+    rootDir: Source
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn main:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120
+    envVars:
+      - key: CLIENT_ID
+        sync: false
+      - key: CLIENT_SECRET
+        sync: false
+      - key: REFRESH_TOKEN
+        sync: false
+      - key: FLASK_ENV
+        value: production

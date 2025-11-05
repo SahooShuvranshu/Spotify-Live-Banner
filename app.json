@@ -1,0 +1,39 @@
+{
+  "name": "Spotify Live Banner",
+  "description": "A dynamic, real-time Spotify widget for your GitHub profile showing currently playing track with beautiful animations",
+  "repository": "https://github.com/SahooShuvranshu/Spotify-Live-Banner",
+  "logo": "https://raw.githubusercontent.com/SahooShuvranshu/Spotify-Live-Banner/main/Images/Spotify.svg",
+  "keywords": ["spotify", "github", "widget", "music", "python", "flask"],
+  "success_url": "/",
+  "stack": "container",
+  "env": {
+    "CLIENT_ID": {
+      "description": "Your Spotify App Client ID (get from Spotify Developer Dashboard)",
+      "required": true
+    },
+    "CLIENT_SECRET": {
+      "description": "Your Spotify App Client Secret",
+      "required": true
+    },
+    "REFRESH_TOKEN": {
+      "description": "Your Spotify Refresh Token (visit https://spotify-refresh-token-generator.onrender.com to get this)",
+      "required": true
+    },
+    "FLASK_ENV": {
+      "description": "Flask environment",
+      "value": "production",
+      "required": false
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
