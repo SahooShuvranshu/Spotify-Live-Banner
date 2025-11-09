@@ -17,11 +17,6 @@
 
 ---
 
-[![Made with Python](https://img.shields.io/badge/Python-3.x-blue.svg?style=for-the-badge&logo=python)](https://www.python.org/)
-[![Flask](https://img.shields.io/badge/Framework-Flask-000000.svg?style=for-the-badge&logo=flask)](https://flask.palletsprojects.com/)
-
----
-
 [![Vercel Deployment Status](https://img.shields.io/vercel/deployment/SahooShuvranshu/Spotify-Live-Banner/main?style=for-the-badge&logo=vercel)](https://vercel.com/SahooShuvranshu/Spotify-Live-Banner)
 [![Last Commit](https://img.shields.io/github/last-commit/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=git)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/commits/main)
 
