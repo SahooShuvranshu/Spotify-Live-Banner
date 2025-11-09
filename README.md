@@ -10,7 +10,7 @@
 
 [![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org) [![Flask](https://img.shields.io/badge/Flask-3.0+-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com) [![Spotify](https://img.shields.io/badge/Spotify-API-1DB954?style=for-the-badge&logo=spotify&logoColor=white)](https://developer.spotify.com)
 
-![Preview](https://spotify-live-banner.onrender.com/?spin=false&scan=true&eq_color=rainbow&theme=dark)
+![Preview](https://spotify-live-banner.vercel.app/?spin=false&scan=true&eq_color=rainbow&theme=dark)
 
 </div>
 
@@ -219,52 +219,53 @@ Add these to the end of your URL to change how it looks:
 
 ```text
 Default (Clean and Simple):
-https://spotify-live-banner.onrender.com/
+https://spotify-live-banner.vercel.app/
 ```
 
-![Default Style](https://spotify-live-banner.onrender.com/)
+![Default Style](https://spotify-live-banner.vercel.app/)
 
 ```text
 Dark mode (For Dark Theme Profiles):
-https://spotify-live-banner.onrender.com/?theme=dark
+https://spotify-live-banner.vercel.app/?theme=dark
 ```
 
-![Dark Mode](https://spotify-live-banner.onrender.com/theme=dark)
+![Dark Mode](https://spotify-live-banner.vercel.app/theme=dark)
 
 ```text
 Vinyl Player (Spin Mode):
-https://spotify-live-banner.onrender.com/?spin=true
+https://spotify-live-banner.vercel.app/?spin=true
 ```
 
-![Spin](https://spotify-live-banner.onrender.com/?spin=true)
+![Spin](https://spotify-live-banner.vercel.app/?spin=true)
 
 ```text
 Equalizer Color (Hex Color):
-https://spotify-live-banner.onrender.com/eq_color=0000FF
+https://spotify-live-banner.vercel.app/eq_color=0000FF
 ```
 
-![Hex Code Color](https://spotify-live-banner.onrender.com/?eq_color=0000FF)
+![Hex Code Color](https://spotify-live-banner.vercel.app/?eq_color=0000FF)
 
 ```text
 Equalizer Color (Rainbow):
-https://spotify-live-banner.onrender.com/?eq_color=rainbow
+https://spotify-live-banner.vercel.app/?eq_color=rainbow
 ```
 
-![Rainbow Color](https://spotify-live-banner.onrender.com/?eq_color=rainbow)
+![Rainbow Color](https://spotify-live-banner.vercel.app/?eq_color=rainbow)
 
 ```text
 Scan Code (Spotify Scan QR Code):
-https://spotify-live-banner.onrender.com/?scan=true
+https://spotify-live-banner.vercel.app/?scan=true
 ```
 
-![Rainbow Color](https://spotify-live-banner.onrender.com/?scan=true)
+![Rainbow Color](https://spotify-live-banner.vercel.app/?scan=true)
 
 ```text
 Ultimate mode (ALL THE THINGS!):
-https://spotify-live-banner.onrender.com/?spin=true&scan=true&theme=dark&eq_color=rainbow
+https://spotify-live-banner.vercel.app/?spin=true&scan=true&theme=dark&eq_color=rainbow
 ```
 
-![All Styles Mix](https://spotify-live-banner.onrender.com/?spin=false&scan=true&eq_color=rainbow&theme=dark)
+![All Styles Mix](https://spotify-live-banner.vercel.app/?spin=false&scan=true&eq_color=rainbow&theme=dark)
+
 ---
 
 ## 🔑 Secret Keys (Environment Variables)
