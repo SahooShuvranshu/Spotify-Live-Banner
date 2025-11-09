@@ -10,6 +10,8 @@
 
 [![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org) [![Flask](https://img.shields.io/badge/Flask-3.0+-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com) [![Spotify](https://img.shields.io/badge/Spotify-API-1DB954?style=for-the-badge&logo=spotify&logoColor=white)](https://developer.spotify.com)
 
+![Preview](https://spotify-live-banner.onrender.com/?spin=false&scan=true&eq_color=rainbow&theme=dark)
+
 </div>
 
 ### ✨ What makes this cool?
