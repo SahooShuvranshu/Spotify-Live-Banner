@@ -14,7 +14,7 @@
 [![Last Commit](https://img.shields.io/github/last-commit/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=git)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/commits/main)
 [![GitHub Issues](https://img.shields.io/github/issues/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=issue)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/issues)
 [![GitHub License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/blob/main/LICENSE)
-[![Vercel Deployment Status](https://img.shields.io/vercel/deployment/SahooShuvranshu/Spotify-Live-Banner/main?style=for-the-badge&logo=vercel)](https://vercel.com/SahooShuvranshu/Spotify-Live-Banner)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel%20App-0070F3.svg?style=for-the-badge&logo=vercel)](https://spotify-live-banner.vercel.app)
 
 ---
 
