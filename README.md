@@ -16,10 +16,10 @@
 ---
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel%20App-0070F3.svg?style=for-the-badge&logo=vercel)](https://spotify-live-banner.vercel.app)
-[![GitHub License](https://img.shields.io/badge/License-MIT-success.svg?style=for-the-badge)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/blob/main/LICENSE)
+[![GitHub License](https://img.shields.io/badge/License-GPL--3.0-success.svg?style=for-the-badge)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/blob/main/LICENSE)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=git&color=orange)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/commits/main)
 [![Repo Size](https://img.shields.io/github/repo-size/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=git&color=9cf)](https://github.com/SahooShuvranshu/Spotify-Live-Banner)
-[![Language Percentage](https://img.shields.io/github/languages/percentage/SahooShuvranshu/Spotify-Live-Banner/python?style=for-the-badge&color=2ecc71)](https://github.com/SahooShuvranshu/Spotify-Live-Banner)
+[![Primary Language](https://img.shields.io/badge/Language-Python-2ecc71?style=for-the-badge&logo=python)](https://github.com/SahooShuvranshu/Spotify-Live-Banner)
 
 ---
 
