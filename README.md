@@ -217,23 +217,43 @@ Add these to the end of your URL to change how it looks:
 
 ### 🎭 Style Examples
 
-**Want everything at once?** Combine them!
-
 ```text
-Basic (clean and simple):
-https://YOUR_URL/
-
-Dark mode (for dark theme profiles):
-https://YOUR_URL/?theme=dark
-
-Party mode (spinning + rainbow):
-https://YOUR_URL/?spin=true&eq_color=rainbow
-
-Ultimate mode (ALL THE THINGS!):
-https://YOUR_URL/?spin=true&scan=true&theme=dark&eq_color=rainbow
+Default (Clean and Simple):
+https://spotify-live-banner.onrender.com/
 ```
 
-**Pro tip:** Mix and match to find your perfect style! 🎨
+![Default Style](https://spotify-live-banner.onrender.com/)
+
+```text
+Dark mode (For Dark Theme Profiles):
+https://spotify-live-banner.onrender.com/?theme=dark
+```
+
+![Dark Mode](https://spotify-live-banner.onrender.com/theme=dark)
+
+```text
+Vinyl Player (Spin Mode):
+https://spotify-live-banner.onrender.com/?spin=true
+```
+
+![Spin](https://spotify-live-banner.onrender.com/?spin=true)
+
+```text
+Equalizer Color (Hex Color & Rainbow):
+https://spotify-live-banner.onrender.com/?spin=true
+```
+
+![Hex Code Color](https://spotify-live-banner.onrender.com/eq_color=0995e0)
+
+
+![Rainbow Color](https://spotify-live-banner.onrender.com/eq_color=rainbow)
+
+```text
+Ultimate mode (ALL THE THINGS!):
+https://spotify-live-banner.onrender.com/?spin=true&scan=true&theme=dark&eq_color=rainbow
+```
+
+![Preview](https://spotify-live-banner.onrender.com/?spin=false&scan=true&eq_color=rainbow&theme=dark)
 
 ---
 
