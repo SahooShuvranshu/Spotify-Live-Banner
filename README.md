@@ -229,7 +229,7 @@ Dark mode (For Dark Theme Profiles):
 https://spotify-live-banner.onrender.com/?theme=dark
 ```
 
-![Dark Mode](https://spotify-live-banner.onrender.com/?theme=dark)
+![Dark Mode](https://spotify-live-banner.onrender.com/theme=dark)
 
 ```text
 Vinyl Player (Spin Mode):
@@ -239,22 +239,32 @@ https://spotify-live-banner.onrender.com/?spin=true
 ![Spin](https://spotify-live-banner.onrender.com/?spin=true)
 
 ```text
-Equalizer Color (Hex Color & Rainbow):
-https://spotify-live-banner.onrender.com/?spin=true
+Equalizer Color (Hex Color):
+https://spotify-live-banner.onrender.com/eq_color=0000FF
 ```
 
-![Hex Code Color](https://spotify-live-banner.onrender.com/eq_color=0995e0)
+![Hex Code Color](https://spotify-live-banner.onrender.com/?eq_color=0000FF)
 
+```text
+Equalizer Color (Rainbow):
+https://spotify-live-banner.onrender.com/?eq_color=rainbow
+```
 
-![Rainbow Color](https://spotify-live-banner.onrender.com/eq_color=rainbow)
+![Rainbow Color](https://spotify-live-banner.onrender.com/?eq_color=rainbow)
+
+```text
+Scan Code (Spotify Scan QR Code):
+https://spotify-live-banner.onrender.com/?scan=true
+```
+
+![Rainbow Color](https://spotify-live-banner.onrender.com/?scan=true)
 
 ```text
 Ultimate mode (ALL THE THINGS!):
 https://spotify-live-banner.onrender.com/?spin=true&scan=true&theme=dark&eq_color=rainbow
 ```
 
-![Preview](https://spotify-live-banner.onrender.com/?spin=false&scan=true&eq_color=rainbow&theme=dark)
-
+![All Styles Mix](https://spotify-live-banner.onrender.com/?spin=false&scan=true&eq_color=rainbow&theme=dark)
 ---
 
 ## 🔑 Secret Keys (Environment Variables)
