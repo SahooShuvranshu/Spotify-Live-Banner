@@ -229,7 +229,7 @@ Dark mode (For Dark Theme Profiles):
 https://spotify-live-banner.onrender.com/?theme=dark
 ```
 
-![Dark Mode](https://spotify-live-banner.onrender.com/theme=dark)
+![Dark Mode](https://spotify-live-banner.onrender.com/?theme=dark)
 
 ```text
 Vinyl Player (Spin Mode):
