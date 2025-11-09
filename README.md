@@ -10,6 +10,23 @@
 
 [![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org) [![Flask](https://img.shields.io/badge/Flask-3.0+-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com) [![Spotify](https://img.shields.io/badge/Spotify-API-1DB954?style=for-the-badge&logo=spotify&logoColor=white)](https://developer.spotify.com)
 
+[![GitHub Stars](https://img.shields.io/github/stars/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&color=yellow&logo=github)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=git)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/network/members)
+[![GitHub Issues](https://img.shields.io/github/issues/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=issue)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/issues)
+[![GitHub License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/blob/main/LICENSE)
+
+---
+
+[![Made with Python](https://img.shields.io/badge/Python-3.x-blue.svg?style=for-the-badge&logo=python)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Framework-Flask-000000.svg?style=for-the-badge&logo=flask)](https://flask.palletsprojects.com/)
+
+---
+
+[![Vercel Deployment Status](https://img.shields.io/vercel/deployment/SahooShuvranshu/Spotify-Live-Banner/main?style=for-the-badge&logo=vercel)](https://vercel.com/SahooShuvranshu/Spotify-Live-Banner)
+[![Last Commit](https://img.shields.io/github/last-commit/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=git)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/commits/main)
+
+
+
 ![Preview](https://spotify-live-banner.vercel.app/?spin=false&scan=true&eq_color=rainbow&theme=dark)
 
 </div>
