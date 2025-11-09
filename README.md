@@ -8,7 +8,7 @@
 
 <p>Ever wanted your GitHub profile to scream "Look at my awesome music taste!"? Well, now it can! This widget displays your current Spotify track in real-time with cool animations. It's like having a mini music player on your profile! 🎶</p>
 
-[![Made with Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org)
+[![Made with Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org)
 [![Flask Framework](https://img.shields.io/badge/Framework-Flask-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com)
 [![Uses Spotify API](https://img.shields.io/badge/API-Spotify-1DB954?style=for-the-badge&logo=spotify&logoColor=white)](https://developer.spotify.com/documentation/web-api/)
 [![Top Language](https://img.shields.io/github/languages/top/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&color=blueviolet)](https://github.com/SahooShuvranshu/Spotify-Live-Banner)
