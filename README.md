@@ -24,7 +24,6 @@
 [![GitHub License](https://img.shields.io/badge/License-GPL--3.0-success.svg?style=for-the-badge)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/blob/main/LICENSE)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=git&color=orange)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/commits/main)
 [![Repo Size](https://img.shields.io/github/repo-size/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=git&color=9cf)](https://github.com/SahooShuvranshu/Spotify-Live-Banner)
-[![Primary Language](https://img.shields.io/badge/Language-Python-2ecc71?style=for-the-badge&logo=python)](https://github.com/SahooShuvranshu/Spotify-Live-Banner)
 
 ---
 
