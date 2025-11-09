@@ -8,25 +8,28 @@
 
 <p>Ever wanted your GitHub profile to scream "Look at my awesome music taste!"? Well, now it can! This widget displays your current Spotify track in real-time with cool animations. It's like having a mini music player on your profile! 🎶</p>
 
-[![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org) [![Flask](https://img.shields.io/badge/Flask-3.0+-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com) [![Spotify](https://img.shields.io/badge/Spotify-API-1DB954?style=for-the-badge&logo=spotify&logoColor=white)](https://developer.spotify.com)
-[![GitHub Stars](https://img.shields.io/github/stars/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&color=yellow&logo=github)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=git)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/network/members)
-[![Last Commit](https://img.shields.io/github/last-commit/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=git)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/commits/main)
-[![GitHub Issues](https://img.shields.io/github/issues/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=issue)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/issues)
-[![GitHub License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/blob/main/LICENSE)
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel%20App-0070F3.svg?style=for-the-badge&logo=vercel)](https://spotify-live-banner.vercel.app)
-[![GitHub License](https://img.shields.io/github/license/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&color=blue)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/blob/main/LICENSE)
-[![Repo Size](https://img.shields.io/github/repo-size/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=git)](https://github.com/SahooShuvranshu/Spotify-Live-Banner)
-[![Language](https://img.shields.io/github/languages/top/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&color=yellow)](https://github.com/SahooShuvranshu/Spotify-Live-Banner)
-[![Total Lines of Code](https://img.shields.io/tokei/lines/github/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&color=success)](https://github.com/SahooShuvranshu/Spotify-Live-Banner)
-[![GitHub Watchers](https://img.shields.io/github/watchers/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=eye)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/watchers)
-[![GitHub Contributors](https://img.shields.io/github/contributors-anon/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=people)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/graphs/contributors)
-
+[![Made with Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org)
+[![Flask Framework](https://img.shields.io/badge/Framework-Flask-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com)
+[![Uses Spotify API](https://img.shields.io/badge/API-Spotify-1DB954?style=for-the-badge&logo=spotify&logoColor=white)](https://developer.spotify.com/documentation/web-api/)
+[![Top Language](https://img.shields.io/github/languages/top/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&color=blueviolet)](https://github.com/SahooShuvranshu/Spotify-Live-Banner)
 
 ---
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel%20App-0070F3.svg?style=for-the-badge&logo=vercel)](https://spotify-live-banner.vercel.app)
+[![GitHub License](https://img.shields.io/badge/License-MIT-success.svg?style=for-the-badge)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/blob/main/LICENSE)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=git&color=orange)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/commits/main)
+[![Repo Size](https://img.shields.io/github/repo-size/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=git&color=9cf)](https://github.com/SahooShuvranshu/Spotify-Live-Banner)
+[![Total Lines of Code](https://img.shields.io/tokei/lines/github/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&color=2ecc71)](https://github.com/SahooShuvranshu/Spotify-Live-Banner)
 
+---
 
+[![GitHub Stars](https://img.shields.io/github/stars/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&color=FFD700&logo=star)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=git&color=E91E63)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/network/members)
+[![GitHub Watchers](https://img.shields.io/github/watchers/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=eye&color=5A5A5A)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/watchers)
+[![GitHub Contributors](https://img.shields.io/github/contributors-anon/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=people&color=4CAF50)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/graphs/contributors)
+[![GitHub Issues](https://img.shields.io/github/issues/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=issue&color=red)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/issues)
+
+---
 
 
 ![Preview](https://spotify-live-banner.vercel.app/?spin=false&scan=true&eq_color=rainbow&theme=dark)
