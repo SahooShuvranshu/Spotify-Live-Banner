@@ -29,6 +29,7 @@
 
 [![GitHub Stars](https://img.shields.io/github/stars/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&color=FFD700&logo=star)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=git&color=E91E63)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/network/members)
+![Repo Views](https://img.shields.io/endpoint?url=https%3A%2F%2Fvisitor-badge.laobi.icu%2Fapi%3Fpage_id%3DSahooShuvranshu.Spotify-Live-Banner&label=Repo%20Views&query=$.value&color=0e75b6&style=for-the-badge)
 [![GitHub Watchers](https://img.shields.io/github/watchers/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=eye&color=5A5A5A)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/watchers)
 [![GitHub Contributors](https://img.shields.io/github/contributors-anon/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=people&color=4CAF50)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/graphs/contributors)
 [![GitHub Issues](https://img.shields.io/github/issues/SahooShuvranshu/Spotify-Live-Banner?style=for-the-badge&logo=issue&color=red)](https://github.com/SahooShuvranshu/Spotify-Live-Banner/issues)
