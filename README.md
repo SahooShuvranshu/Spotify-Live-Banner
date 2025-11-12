@@ -289,7 +289,7 @@ Ultimate mode (ALL THE THINGS!):
 https://spotify-live-banner.vercel.app/?spin=true&scan=true&theme=dark&eq_color=rainbow
 ```
 
-![All Styles Mix](https://spotify-live-banner.vercel.app/?spin=false&scan=true&eq_color=rainbow&theme=dark)
+![All Styles Mix](https://spotify-live-banner.vercel.app/?spin=true&scan=true&eq_color=rainbow&theme=dark)
 
 ---
 
