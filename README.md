@@ -6,7 +6,7 @@
 
 ### Show off what you're jamming to, right on your GitHub profile! 🎧
 
-![Preview](https://spotify-live-banner.vercel.app/?spin=false&scan=true&eq_color=rainbow&theme=dark&?recently_playing=true)
+![Preview](https://spotify-live-banner.vercel.app/?recently_playing=true&spin=false&blur=true&eq_color=rainbow&theme=glass)
 
 <p>Ever wanted your GitHub profile to scream "Look at my awesome music taste!"? Well, now it can! This widget displays your current Spotify track in real-time with cool animations. It's like having a mini music player on your profile! 🎶</p>
 
