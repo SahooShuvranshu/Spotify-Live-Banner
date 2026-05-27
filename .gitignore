@@ -30,3 +30,7 @@ build/
 *.egg-info/
 
 previews
+
+# Agent Instructions
+.github/copilot-instructions.md
+.github/GEMINI.md

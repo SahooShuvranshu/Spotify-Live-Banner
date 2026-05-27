@@ -1,18 +1,25 @@
 from flask import Flask, Response
 import traceback
 
-from app.modules.functions import make_link_page, make_svg_widget
+from app.modules.functions import make_about_page, make_svg_widget
+
+FAVICON_SVG = """<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+<circle fill='#1ED760' cx='50' cy='50' r='50'/>
+<path d='M28 38c16-6 35-4 46 3' fill='none' stroke='#000' stroke-width='6' stroke-linecap='round'/>
+<path d='M28 52c16-4 31-2 42 3' fill='none' stroke='#000' stroke-width='6' stroke-linecap='round'/>
+<path d='M28 66c13-3 26-2 36 3' fill='none' stroke='#000' stroke-width='6' stroke-linecap='round'/>
+</svg>"""
 
 
 def create_app() -> Flask:
     app: Flask = Flask(__name__)
 
-    @app.route("/link")
-    def link() -> Response:
+    @app.route("/about")
+    def about() -> Response:
         """Display setup instructions as well as the current song."""
         try:
             resp: Response = Response(
-                response=make_link_page(),
+                response=make_about_page(),
                 mimetype="text/html",
             )
             resp.headers["Cache-Control"] = "s-maxage=1"  # Cache for 1 second
@@ -22,14 +29,25 @@ def create_app() -> Flask:
             error_html = f"""
             <html>
                 <body>
-                    <h1>Error Loading Link Page</h1>
+                    <h1>Error Loading About Page</h1>
                     <p>An error occurred: {str(e)}</p>
-                    <p>Please check your .env configuration and make sure your Spotify credentials are correct.</p>
+                    <p>Please check your .env configuration and make sure your credentials are correct.</p>
                     <pre>{traceback.format_exc()}</pre>
                 </body>
             </html>
             """
             return Response(response=error_html, mimetype="text/html", status=500)
+
+    @app.route("/favicon.ico")
+    def favicon() -> Response:
+        resp: Response = Response(response=FAVICON_SVG, mimetype="image/svg+xml")
+        resp.headers["Cache-Control"] = "public, max-age=86400"
+        return resp
+
+    @app.route("/link")
+    def link_alias() -> Response:
+        """Backward-compatible alias for /about."""
+        return about()
 
     @app.route(rule="/", defaults={"path": ""})
     @app.route(rule="/<path:path>")

@@ -5,7 +5,7 @@ services:
     region: oregon
     plan: free
     branch: main
-    rootDir: Source
+    rootDir: source
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn main:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120
     envVars:
@@ -14,6 +14,10 @@ services:
       - key: CLIENT_SECRET
         sync: false
       - key: REFRESH_TOKEN
+        sync: false
+      - key: LASTFM_API_KEY
+        sync: false
+      - key: LASTFM_USERNAME
         sync: false
       - key: FLASK_ENV
         value: production

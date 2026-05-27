@@ -8,16 +8,24 @@
   "stack": "container",
   "env": {
     "CLIENT_ID": {
-      "description": "Your Spotify App Client ID (get from Spotify Developer Dashboard)",
-      "required": true
+      "description": "Your Spotify App Client ID (optional if using Last.fm)",
+      "required": false
     },
     "CLIENT_SECRET": {
-      "description": "Your Spotify App Client Secret",
-      "required": true
+      "description": "Your Spotify App Client Secret (optional if using Last.fm)",
+      "required": false
     },
     "REFRESH_TOKEN": {
-      "description": "Your Spotify Refresh Token (visit https://spotify-refresh-token-generator.onrender.com to get this)",
-      "required": true
+      "description": "Your Spotify Refresh Token (optional if using Last.fm)",
+      "required": false
+    },
+    "LASTFM_API_KEY": {
+      "description": "Last.fm API key (get from https://www.last.fm/api/account/create)",
+      "required": false
+    },
+    "LASTFM_USERNAME": {
+      "description": "Your Last.fm username",
+      "required": false
     },
     "FLASK_ENV": {
       "description": "Flask environment",

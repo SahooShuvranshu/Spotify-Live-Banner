@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify Live Banner | Dynamic Status Widget</title>
+    <meta name="description" content="Professional real-time music banner for GitHub profiles. Features dynamic SVG generation, Spotify & Last.fm integration." />
+    <meta name="theme-color" content="#1db954" />
+    <link rel="icon" href="/favicon.ico" />
+    <style>
+      :root {
+        --bg-main: #0b0e14;
+        --bg-card: #151921;
+        --accent: #1db954;
+        --accent-hover: #1ed760;
+        --accent-glow: rgba(29, 185, 84, 0.15);
+        --text-main: #ffffff;
+        --text-muted: #94a3b8;
+        --border: rgba(255, 255, 255, 0.1);
+        --code-bg: #000000;
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --radius-lg: 24px;
+        --radius-md: 16px;
+        --shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background-color: var(--bg-main);
+        background-image: 
+          radial-gradient(circle at 0% 0%, rgba(29, 185, 84, 0.05) 0%, transparent 50%),
+          radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.03) 0%, transparent 50%);
+        color: var(--text-main);
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 60px 24px;
+      }
+
+      /* Hero Section */
+      header {
+        text-align: center;
+        margin-bottom: 60px;
+        animation: fadeIn 0.8s ease-out;
+      }
+
+      .logo-container {
+        display: inline-flex;
+        padding: 16px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        margin-bottom: 24px;
+      }
+
+      header h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        color: var(--text-main);
+        margin-bottom: 16px;
+      }
+
+      header p {
+        color: var(--text-muted);
+        font-size: clamp(1rem, 2vw, 1.15rem);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* Sections */
+      .section-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 40px;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        border-color: var(--accent);
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      @media (min-width: 850px) {
+        .grid-2 {
+          grid-template-columns: 1.2fr 1fr;
+        }
+      }
+
+      h2 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--text-main);
+      }
+
+      h2 svg {
+        color: var(--accent);
+      }
+
+      /* Preview Box */
+      .preview-wrapper {
+        background: #000;
+        border-radius: var(--radius-md);
+        padding: 60px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 24px;
+        border: 1px solid var(--border);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .preview-wrapper::before {
+        content: '';
+        position: absolute;
+        width: 150%;
+        height: 150%;
+        background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+        pointer-events: none;
+      }
+
+      .preview-wrapper img {
+        max-width: 100%;
+        height: auto;
+        position: relative;
+        z-index: 1;
+        filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+      }
+
+      /* Feature Context */
+      .context-text {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        margin-bottom: 24px;
+      }
+
+      .feature-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .pill {
+        background: rgba(29, 185, 84, 0.1);
+        color: var(--accent);
+        padding: 6px 14px;
+        border-radius: 500px;
+        font-size: 13px;
+        font-weight: 600;
+        border: 1px solid rgba(29, 185, 84, 0.2);
+      }
+
+      /* Integration Snippets */
+      .code-header {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-main);
+        margin-bottom: 8px;
+        display: block;
+      }
+
+      .code-box {
+        background: var(--code-bg);
+        color: #1db954;
+        padding: 24px;
+        border-radius: var(--radius-md);
+        font-family: 'Fira Code', ui-monospace, SFMono-Regular, monospace;
+        font-size: 13px;
+        line-height: 1.6;
+        overflow-x: auto;
+        border: 1px solid var(--border);
+        margin-bottom: 20px;
+      }
+
+      .code-box span.highlight {
+        color: #fff;
+      }
+
+      /* Customization Table */
+      .table-container {
+        overflow-x: auto;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--border);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--bg-card);
+      }
+
+      th {
+        text-align: left;
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--text-muted);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 16px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      td {
+        padding: 18px 16px;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.9rem;
+      }
+
+      .param-tag {
+        font-family: monospace;
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      /* Gallery Styles */
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        margin-top: 10px;
+      }
+
+      .gallery-item {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: auto;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--border);
+        transition: var(--transition);
+        background: #000;
+      }
+
+      .gallery-item img:hover {
+        transform: translateY(-4px);
+        border-color: var(--accent);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      }
+
+      .gallery-category {
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--accent);
+        margin: 40px 0 20px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      /* Buttons */
+      .btn-group {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 12px 24px;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 14px;
+        text-decoration: none;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: #000;
+      }
+
+      .btn-primary:hover {
+        background: var(--accent-hover);
+        transform: translateY(-1px);
+        box-shadow: 0 10px 20px var(--accent-glow);
+      }
+
+      .btn-outline {
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text-main);
+        border: 1px solid var(--border);
+      }
+
+      .btn-outline:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: var(--text-muted);
+      }
+
+      /* Tech Overview Section */
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 32px;
+        margin-top: 10px;
+      }
+
+      .info-item h3 {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+        color: var(--text-main);
+      }
+
+      .info-item p {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      /* Footer Redesign */
+      .footer-main {
+        margin-top: 100px;
+        padding: 60px 0 40px;
+        border-top: 1px solid var(--border);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer-col h4 {
+        color: var(--text-main);
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 12px;
+      }
+
+      .footer-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: var(--accent);
+      }
+
+      .footer-bottom {
+        padding-top: 30px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 600px) {
+        .container { padding: 40px 16px; }
+        .card { padding: 24px; }
+        header h1 { font-size: 2rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo-container">
+          <img src="/favicon.ico" width="40" height="40" alt="Spotify Live Banner Logo" />
+        </div>
+        <h1>Spotify Live Banner</h1>
+        <p>Personalize your profile with a professional, lightweight engine that generates high-fidelity dynamic SVG banners to showcase your real-time listening activity on GitHub and beyond.</p>
+      </header>
+
+      <div class="section-stack">
+        <!-- Main Preview & Context -->
+        <div class="card">
+          <div class="grid-2">
+            <div>
+              <h2>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Live Preview
+              </h2>
+              <div class="preview-wrapper">
+                <img src="{{ banner_url }}" alt="Live Banner Preview" />
+              </div>
+              <div class="btn-group">
+                <a href="/" class="btn btn-primary">Open Raw SVG</a>
+                <a href="https://github.com/SahooShuvranshu/Spotify-Live-Banner" class="btn btn-outline">View on GitHub</a>
+              </div>
+            </div>
+            <div>
+              <h2>Why use this?</h2>
+              <p class="context-text">Traditional "Now Playing" widgets often rely on complex iframes or slow-loading scripts. Our engine generates a pure SVG image server-side, ensuring lightning-fast loads and 100% compatibility with GitHub's Markdown renderer.</p>
+              <div class="feature-pills">
+                <span class="pill">Real-time Data</span>
+                <span class="pill">Zero Latency</span>
+                <span class="pill">Privacy Focused</span>
+                <span class="pill">Highly Customizable</span>
+                <span class="pill">SVG Vector Quality</span>
+              </div>
+              <div style="margin-top: 32px;">
+                <h3 style="font-size: 1rem; margin-bottom: 12px;">Supported Platforms</h3>
+                <p class="context-text" style="font-size: 0.9rem;">Seamlessly connects with your <strong>Spotify</strong> or <strong>Last.fm</strong> account. It automatically handles token refreshes and player state synchronization.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Integration Section -->
+        <div class="card">
+          <h2>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            Integration Guide
+          </h2>
+          <p class="context-text">Integrating the banner into your profile is as simple as adding an image link. Copy the snippets below and replace the placeholder with your actual hosted URL.</p>
+          
+          <div class="grid-2">
+            <div>
+              <span class="code-header">Markdown (Best for GitHub README)</span>
+              <div class="code-box">
+                <code>[![Listening](<span class="highlight">https://your-url.com/</span>)](https://your-url.com/about)</code>
+              </div>
+            </div>
+            <div>
+              <span class="code-header">HTML Implementation</span>
+              <div class="code-box">
+                <code>&lt;a href="<span class="highlight">https://your-url.com/about</span>"&gt;<br/>  &lt;img src="<span class="highlight">https://your-url.com/</span>" alt="Music" /&gt;<br/>&lt;/a&gt;</code>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech Overview -->
+        <div class="card">
+          <h2>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            Technical Architecture
+          </h2>
+          <div class="info-grid">
+            <div class="info-item">
+              <h3>Dynamic SVG Engine</h3>
+              <p>The widget is rendered using a custom Python backend that injects live music data into optimized SVG templates, allowing for rich CSS animations inside an image format.</p>
+            </div>
+            <div class="info-item">
+              <h3>Secure Integration</h3>
+              <p>Your credentials (API keys and tokens) are stored safely as environment variables. We never share or log your private account data.</p>
+            </div>
+            <div class="info-item">
+              <h3>Smart Caching</h3>
+              <p>To ensure high performance and respect API rate limits, we use an intelligent in-memory caching system for album artwork and scan codes.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Style Gallery (Categorized) -->
+        <div class="card">
+          <h2>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg>
+            Interactive Style Gallery
+          </h2>
+          <p class="context-text">Discover how different parameters transform your banner. These are live previews pulling from your current activity.</p>
+          
+          <h3 class="gallery-category">Core Themes</h3>
+          <div class="gallery-grid">
+            <div class="gallery-item">
+              <span class="code-header">Default Light <br/><code>?theme=light</code></span>
+              <img src="/?theme=light" alt="Default Light" />
+            </div>
+            <div class="gallery-item">
+              <span class="code-header">Midnight Dark <br/><code>?theme=dark</code></span>
+              <img src="/?theme=dark" alt="Midnight Dark" />
+            </div>
+            <div class="gallery-item">
+              <span class="code-header">iOS Glass <br/><code>?theme=glass</code></span>
+              <img src="/?theme=glass" alt="iOS Glass" />
+            </div>
+          </div>
+
+          <h3 class="gallery-category">Intelligent Effects</h3>
+          <div class="gallery-grid">
+            <div class="gallery-item">
+              <span class="code-header">Adaptive Glass <br/><code>?theme=glass&adaptive=true</code></span>
+              <img src="/?theme=glass&adaptive=true" alt="Adaptive Glass" />
+            </div>
+            <div class="gallery-item">
+              <span class="code-header">Artwork Blur <br/><code>?blur=true</code></span>
+              <img src="/?blur=true" alt="Blurred Background" />
+            </div>
+            <div class="gallery-item">
+              <span class="code-header">Recently Played <br/><code>?recently_playing=true</code></span>
+              <img src="/?recently_playing=true" alt="Recently Played" />
+            </div>
+          </div>
+
+          <h3 class="gallery-category">Visual Accents</h3>
+          <div class="gallery-grid">
+            <div class="gallery-item">
+              <span class="code-header">Vinyl Spin <br/><code>?spin=true</code></span>
+              <img src="/?theme=dark&spin=true" alt="Vinyl Spin" />
+            </div>
+            <div class="gallery-item">
+              <span class="code-header">Rainbow Visualizer <br/><code>?eq_color=rainbow</code></span>
+              <img src="/?eq_color=rainbow" alt="Rainbow Visualizer" />
+            </div>
+            <div class="gallery-item">
+              <span class="code-header">Spotify Scan Code <br/><code>?scan=true</code></span>
+              <img src="/?scan=true" alt="Scan Code" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Want to make your own? -->
+        <div class="card" id="make-your-own">
+          <h2>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+            Want to make your own widget?
+          </h2>
+          <p class="context-text">The Spotify Live Banner is fully open-source and designed to be self-hosted. By deploying your own instance, you have 100% control over your data and can customize the code to fit your exact needs.</p>
+          
+          <div class="grid-2" style="margin-top: 24px;">
+            <div class="info-item">
+              <h3>1. Clone & Setup</h3>
+              <p>Fork the repository on GitHub and set up your Spotify/Last.fm API credentials as environment variables. We provide a detailed guide in the <code>README.md</code>.</p>
+            </div>
+            <div class="info-item">
+              <h3>2. One-Click Deploy</h3>
+              <p>Support for **Vercel**, **Railway**, and **Render** is built-in. Simply connect your repository and your personalized banner engine will be live in minutes.</p>
+            </div>
+          </div>
+          
+          <div class="btn-group" style="margin-top: 32px;">
+            <a href="https://github.com/SahooShuvranshu/Spotify-Live-Banner#deployment" class="btn btn-primary">Deployment Guide</a>
+            <a href="https://github.com/SahooShuvranshu/Spotify-Live-Banner/generate" class="btn btn-outline">Use This Template</a>
+          </div>
+        </div>
+
+        <!-- API Configuration -->
+        <div class="card">
+          <h2>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00 .33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 00 1.82.33H9a1.65 1.65 0 00 1-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 00 1 1.51 1.65 1.65 0 00 1.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 00 1.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+            API Customization
+          </h2>
+          <p class="context-text">Tailor the banner to match your profile's aesthetic by appending these parameters to your URL.</p>
+          
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Parameter</th>
+                  <th>Valid Options</th>
+                  <th>Default</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="param-tag">recently_playing</span></td>
+                  <td>true, false</td>
+                  <td>false</td>
+                  <td>Toggle whether to show your last played track when inactive.</td>
+                </tr>
+                <tr>
+                  <td><span class="param-tag">adaptive</span></td>
+                  <td>true, false</td>
+                  <td>false</td>
+                  <td>Extract dominant color from artwork for EQ and Glass themes.</td>
+                </tr>
+                <tr>
+                  <td><span class="param-tag">blur</span></td>
+                  <td>true, false</td>
+                  <td>false</td>
+                  <td>Apply a blurred artwork background (Neutral when inactive).</td>
+                </tr>
+                <tr>
+                  <td><span class="param-tag">theme</span></td>
+                  <td>light, dark, glass</td>
+                  <td>light</td>
+                  <td>Adjusts the background and text contrast.</td>
+                </tr>
+                <tr>
+                  <td><span class="param-tag">spin</span></td>
+                  <td>true, false</td>
+                  <td>false</td>
+                  <td>Enables a rotating record animation for the cover art.</td>
+                </tr>
+                <tr>
+                  <td><span class="param-tag">eq_color</span></td>
+                  <td>Hex (e.g. FF0000), rainbow</td>
+                  <td>1DB954</td>
+                  <td>Sets the color of the animated equalizer bars.</td>
+                </tr>
+                <tr>
+                  <td><span class="param-tag">scan</span></td>
+                  <td>true, false</td>
+                  <td>false</td>
+                  <td>Displays a scannable Spotify code (Requires Premium).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Community & Growth -->
+        <div class="card">
+          <h2>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Star History
+          </h2>
+          <p class="context-text">We are growing! This project is powered by the open-source community. If you enjoy using this banner, consider giving us a star on GitHub.</p>
+          <div style="background: rgba(255,255,255,0.02); border-radius: 16px; padding: 20px; border: 1px solid var(--border);">
+            <a href="https://www.star-history.com/?repos=SahooShuvranshu%2FSpotify-Live-Banner&type=date&legend=top-left" target="_blank">
+             <picture>
+               <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=SahooShuvranshu/Spotify-Live-Banner&type=date&theme=dark&legend=top-left" />
+               <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=SahooShuvranshu/Spotify-Live-Banner&type=date&legend=top-left" />
+               <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=SahooShuvranshu/Spotify-Live-Banner&type=date&legend=top-left" style="width: 100%; height: auto; border-radius: 8px;" />
+             </picture>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer-main">
+        <div class="footer-grid">
+          <div class="footer-col" style="grid-column: span 2;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+              <img src="/favicon.ico" width="32" height="32" alt="Logo" />
+              <h3 style="font-size: 1.25rem; font-weight: 800;">Spotify Live Banner</h3>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 400px;">
+              Empowering developers to share their musical identity with the world. Built for performance, designed for the modern web.
+            </p>
+            <p style="margin-top: 20px; font-size: 0.85rem;">
+              <a href="mailto:connect.crystalstudio@gmail.com" style="color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                connect.crystalstudio@gmail.com
+              </a>
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Project</h4>
+            <ul class="footer-links">
+              <li><a href="https://github.com/SahooShuvranshu/Spotify-Live-Banner">Source Code</a></li>
+              <li><a href="https://github.com/SahooShuvranshu/Spotify-Live-Banner/releases">Releases</a></li>
+              <li><a href="https://github.com/SahooShuvranshu/Spotify-Live-Banner/blob/main/LICENSE">License</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <ul class="footer-links">
+              <li><a href="https://github.com/SahooShuvranshu/Spotify-Live-Banner/issues">Report Issue</a></li>
+              <li><a href="https://discord.gg/EdbUJHNv9J">Discord</a></li>
+              <li><a href="https://github.com/SahooShuvranshu/Spotify-Live-Banner">Contribute</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 SahooShuvranshu. All rights reserved.</p>
+          <div style="display: flex; gap: 24px;">
+            <a href="https://github.com/SahooShuvranshu" style="color: var(--text-muted); text-decoration: none;">GitHub</a>
+            <span style="color: var(--border);">|</span>
+            <span style="opacity: 0.8;">Inspired by <a href="https://github.com/tthn0/Spotify-Readme" style="color: var(--accent); text-decoration: none;">Spotify-Readme</a> by <a href="https://github.com/tthn0" style="color: var(--accent); text-decoration: none;">tthn0</a>.</span>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 20px; font-size: 0.75rem; opacity: 0.6; color: var(--text-muted);">
+          This project is an independent open-source tool and is not affiliated with Spotify AB or Last.fm. It uses publicly available APIs to display music data.
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

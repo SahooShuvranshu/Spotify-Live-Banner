@@ -4,6 +4,8 @@
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
 >
+  <title>Spotify Live Banner — {{ track_name }}</title>
+  <desc>Live music banner showing the current track and artist.</desc>
   <foreignObject width="495" height="160">
     <div xmlns="http://www.w3.org/1999/xhtml" class="container">
       <style>
@@ -25,6 +27,44 @@
             padding: 20px;
             border-radius: 5px;
             background: {{ background_color }};
+            position: relative;
+            overflow: hidden;
+            {% if theme == 'glass' %}
+                backdrop-filter: blur(25px) saturate(200%);
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            {% elif theme == 'apple' %}
+                background: linear-gradient(135deg, #fc3c44 0%, #fb233b 100%);
+                animation: apple-gradient 10s ease infinite alternate;
+                background-size: 200% 200%;
+            {% endif %}
+        }
+        .blur-layer {
+            position: absolute;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background-size: cover;
+            background-position: center;
+            filter: blur(25px) brightness(0.6);
+            z-index: 0;
+            {% if not is_playing %}
+                background-color: #2d3748; /* Dark grey fallback */
+                background-image: none !important;
+            {% else %}
+                background-image: url(data:image/png;base64,{{base_64_track_image}});
+            {% endif %}
+        }
+        .content-overlay {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            width: 100%;
+        }
+        @keyframes apple-gradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
         .scan-code {
             transform-origin: top right;
@@ -34,7 +74,7 @@
             border-radius: 5px;
         }
         aside {
-            width: 485px;
+            width: 455px;
             display: flex;
             position: relative;
             {% if base_64_scan_code %}
@@ -44,18 +84,26 @@
         .cover {
             width: 120px;
             height: 120px;
-            {% if spin %}
-                border-radius: 50%;
-                animation: spin 0ms -800ms linear infinite;
-                animation-duration: 10s;
+            {% if is_playing %}
+                {% if spin %}
+                    border-radius: 50%;
+                    animation: spin 0ms -800ms linear infinite;
+                    animation-duration: 10s;
+                {% else %}
+                    border-radius: 10px;
+                {% endif %}
             {% else %}
                 border-radius: 10px;
+                animation: logo-rotate 20s linear infinite;
             {% endif %}
-            <!-- {% if theme == 'dark' %}
-                box-shadow: 0 0 10px 5px #1b2027;
-            {% else %}
-                box-shadow: 0 0 10px 5px #f1f3f5;
-            {% endif %} -->
+        }
+        @keyframes logo-rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
         }
         section {
             padding-left: 20px;
@@ -104,6 +152,11 @@
             width: 24px;
             height: 24px;
         }
+        .source-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: {{ title_color }};
+        }
         .bar-container {
             display: flex;
             animation: rainbow 0ms -800ms linear infinite;
@@ -138,38 +191,43 @@
             }
         }
       </style>
-      <a href="https://github.com/SahooShuvranshu/Spotify-Live-Banner" target="_blank">
+      <a href="/about">
         <main>
-          {% if base_64_scan_code %}
-          <img
-            class="scan-code"
-            src="data:image/png;base64, {{base_64_scan_code}}"
-            alt="Scan Code"
-          />
+          {% if blur %}
+          <div class="blur-layer"></div>
           {% endif %}
-          <aside>
+          <div class="content-overlay">
+            {% if base_64_scan_code %}
             <img
-              class="cover"
-              src="data:image/png;base64, {{base_64_track_image}}"
-              alt="Cover Image"
+              class="scan-code"
+              src="data:image/png;base64, {{base_64_scan_code}}"
+              alt="Scan Code"
             />
-            <section>
-              <div class="info">
-                <div class="top">
-                  {% if not base_64_scan_code %}
-                  <img
-                    class="logo"
-                    src="data:image/png;base64, {{logo}}"
-                    alt="Spotify Logo"
-                  />
-                  {% endif %}
-                  <h1>{{track_name}}</h1>
+            {% endif %}
+            <aside>
+              <img
+                class="cover"
+                src="data:image/png;base64, {{base_64_track_image}}"
+                alt="Cover Image"
+              />
+              <section>
+                <div class="info">
+                  <div class="top">
+                    {% if not base_64_scan_code and provider == "spotify" %}
+                      <img
+                        class="logo"
+                        src="data:image/png;base64, {{logo}}"
+                        alt="Spotify Logo"
+                      />
+                    {% endif %}
+                    <h1>{{track_name}}</h1>
+                  </div>
+                  <p>{{track_artist}}</p>
                 </div>
-                <p>{{track_artist}}</p>
-              </div>
-              <div class="bar-container">{{eq_bars_html|safe}}</div>
-            </section>
-          </aside>
+                <div class="bar-container">{{eq_bars_html|safe}}</div>
+              </section>
+            </aside>
+          </div>
         </main>
       </a>
     </div>
